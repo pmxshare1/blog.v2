@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <!--HOME SECTION-->
+    <div class="container" id="home">
+        <div class="row text-center">
+            <div class="col-md-12">
+                <span class="head-main">NOW OR NEVER</span>
+                <h3 class="head-sub-main">Career in Software Development</h3>
+                <h4 class="head-last">
+                    Promax Computers was founded by experienced software engineers. 
+                    We know what it takes to not only break into software, 
+                    but to build and grow a career as an engineer in the software industry. 
+                    Our objective is to increase your lifetime earnings by millions of dollars. 
+                    This is what makes Promax Computers unique and why we focus on the long-term 
+                    results of a career. Our curriculum was created by software engineers for 
+                    future software engineers — you. 
+                </h4>
+                <a href="#about-sec" class="btn btn-danger btn-lg head-btn-one">EXPLORE AXIS</a> &nbsp;  <a href="#about-sec" class="btn btn-primary btn-lg">MODEL THEME</a>
+            </div>
+        </div>
+    </div>
+    <!--END HOME SECTION-->
+
+    <!--ABOUT SECTION-->
+    {% include 'about.html' %}
+    <!--END ABOUT SECTION-->
+
+    <!--PRICE SECTION-->
+    {% include 'price.html' %}
+    <!-- END PRICE SECTION-->
+
+    <!--SERVICES SECTION-->
+    {% include 'services.html' %}
+    <!--END SERVICES SECTION-->
+    <!--STATS SECTION-->
+    {% include 'stats.html' %}
+    <!--END STATS SECTION-->
+
+    <!--CONTACT SECTION-->
+    {% include 'contact.html' %}
+    <!--END CONTACT SECTION-->
+
+    <!-- SOCIAL STATS SECTION-->
+    {% include 'social.html' %}
+    <!-- END SOCIAL STATS SECTION-->
+
+{% endblock content %}

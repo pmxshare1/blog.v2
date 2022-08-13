@@ -1,0 +1,25 @@
+<section id="price-sec">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-12 ">
+                {% for plan in plans %}
+                    <div class="col-md-3">
+                        <ul class="plan">
+                            <li class="plan-head c-b">{{plan.plan_type}}</li>
+                            <li class="main-price">{{plan.price}}</li>
+                            <li><strong>{{plan.account}}</strong> Accounts</li>
+                            <li><strong>{{plan.email}}</strong> Emails</li>
+                            <li><strong>{{plan.space}}</strong> Space</li>
+                            <li><strong>{{plan.support}}</strong> Support</li>
+                            <li class="bottom">
+                                <a href="#" class="btn btn-danger">Read More</a>
+                            </li>
+                        </ul>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+
+    </div>
+</section>

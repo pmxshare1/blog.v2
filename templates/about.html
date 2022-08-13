@@ -1,0 +1,51 @@
+
+<section class="for-full-back color-bg-one" id="about-sec">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-8 col-md-offset-2 ">
+                <h1><i class="fa fa-users faa-pulse animated"></i>{{about.main_title}}</h1>
+            </div>
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2 ">
+                    <h4>
+                        <strong>{{about.main_desc}}</strong>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="for-full-back color-white" id="about-team">
+    <div class="container">
+        <div class="row text-center g-pad-bottom">
+            <div class="col-md-8 col-md-offset-2 ">
+                <h3>{{about.sub_title}}</h3>
+                <h4>
+                    {{about.sub_desc}}   
+                </h4>
+            </div>
+
+        </div>
+        <div class="row text-center g-pad-bottom">
+            <div class="col-md-12">
+                {% for team in teams %}
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="team-member">
+                            <img src="{{team.image.url}}" alt="">
+                            <h3><strong>{{team.name}}</strong></h3>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row g-pad-bottom">
+            <div class="col-md-12">
+                <h3>Structured Curriculum from First Principles</h3>
+                <p>
+                    Our program is about slowly building up mastery of fundamentals, so you understand how higher level abstractions truly work from the bottom up. Our goal isn't to teach you how to use React or Rails, but to show you how to construct accurate mental representations of first principles in order to tackle fundamental engineering problems. Our goal isn't to help you find a job, but help you launch a career. Our goal isn't to teach you to code, but to teach you how to deconstruct and problem solve like an engineer. 
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section>

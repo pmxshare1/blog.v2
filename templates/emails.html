@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" />
+    <title>Emails</title>
+    <style>
+        .email-container {
+            margin: 50px;
+            width: 60%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="email-container">
+        <div>
+            <p>Welcome</p> &nbsp; {{signin_name}}
+        </div>
+        <table class="table table-success table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Sender</th>
+                <th scope="col">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for mail in emails %}           
+                <tr>
+                    <th scope="row">{{mail.id}}</th>
+                    <td>{{mail.name}}</td>
+                    <td>{{mail.sender}}</td>
+                    <td>{{mail.message}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    
+        <div>
+            <label>{{error}}</label>
+        </div>
+    </div>
+</body>
+</html>
