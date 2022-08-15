@@ -15,8 +15,8 @@ def home(request):
             Sender_Email = request.POST['sender']
             Sender_Message = request.POST['message']
 
-            sender_address = 'mysmtp@primusglobalgh.com'
-            sender_password = 'ZOOFi7pxIZhv'
+            sender_address = 'mysmtp@promaxgh.com'
+            sender_password = 'pyemailpassword'
             receiver_address = 'pmxshare@gmail.com'
 
             message = MIMEMultipart()
@@ -25,7 +25,7 @@ def home(request):
             message['Subject'] = 'Message From Biwas Page'
             message.attach(MIMEText(f'Sender Name: {Sender_Name}, \nSenders Email: {Sender_Email}, \nMessage: {Sender_Message}', 'plain'))
 
-            session = smtplib.SMTP('mail.primusglobalgh.com', 587)
+            session = smtplib.SMTP('mail.promaxgh.com', 587)
             session.starttls()
             session.login(sender_address, sender_password)
 
