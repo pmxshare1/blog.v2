@@ -33,7 +33,7 @@ def home(request):
             session.sendmail(sender_address, receiver_address, text)
             session.quit()
 
-
+            ###MailJet
             
             # name = request.POST['name']
             # sender = request.POST['sender']
