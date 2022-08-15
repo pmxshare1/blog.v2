@@ -2,20 +2,47 @@ from django.shortcuts import render, redirect
 from .models import About, Team, Contact, Plan, Mails, Emails
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
 
 # Create your views here.
 def home(request):
     request.session['is_login'] = False
     try:
         if request.method=='POST' and 'sendmail' in request.POST:
-            name = request.POST['name']
-            sender = request.POST['sender']
-            message = request.POST['message']
-            SendMail = Mails()
-            SendMail.name = name
-            SendMail.sender = sender
-            SendMail.message = message
-            SendMail.save()
+            Sender_Name = request.POST['name']
+            Sender_Email = request.POST['sender']
+            Sender_Message = request.POST['message']
+
+            sender_address = 'mysmtp@primusglobalgh.com'
+            sender_password = 'ZOOFi7pxIZhv'
+            receiver_address = 'pmxshare@gmail.com'
+
+            message = MIMEMultipart()
+            message['From'] = sender_address
+            message['To'] = receiver_address
+            message['Subject'] = 'Message From Biwas Page'
+            message.attach(MIMEText(f'Sender Name: {Sender_Name}, \nSenders Email: {Sender_Email}, \nMessage: {Sender_Message}', 'plain'))
+
+            session = smtplib.SMTP('mail.primusglobalgh.com', 587)
+            session.starttls()
+            session.login(sender_address, sender_password)
+
+            text = message.as_string()
+            session.sendmail(sender_address, receiver_address, text)
+            session.quit()
+
+
+            
+            # name = request.POST['name']
+            # sender = request.POST['sender']
+            # message = request.POST['message']
+            # SendMail = Mails()
+            # SendMail.name = name
+            # SendMail.sender = sender
+            # SendMail.message = message
+            # SendMail.save()
 
             return render(request, 'index.html', {'msg': 'Message Delivered!'})
 
@@ -24,7 +51,7 @@ def home(request):
         contact = Contact.objects.get(id=1)
         plans = Plan.objects.all()
         return render(request, 'index.html', {'about':about, 'teams':teams, 'contact':contact, 'plans':plans})
-    except:
+    except Exception as err:
         return render(request, 'index.html')
     
 def register(request):
